@@ -20,7 +20,7 @@ function ModelSelectionPage({ onSelectModel }) {
           onChange={(e) => setSelectedModel(e.target.value)}
         >
           <option value="coco-ssd">COCO-SSD</option>
-          <option value="handpose">Handpose</option>
+          <option value="Yolo">YOLO</option>
           {/* Add more options for other models if needed */}
         </select>
         <button className="model-selection-button" onClick={handleSelectModel}>
