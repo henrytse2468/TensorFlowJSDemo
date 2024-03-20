@@ -5,6 +5,9 @@ import * as handpose from '@tensorflow-models/handpose';
 import Webcam from 'react-webcam';
 import './App.css';
 import { drawRect } from './utilities';
+import { loadGraphModel } from '@tensorflow/tfjs-converter';
+
+const MODEL_URL = './model/yolo/model.json';
 
 function App({ selectedModel }) {
   const webcamRef = useRef(null);
@@ -19,8 +22,8 @@ function App({ selectedModel }) {
       case 'coco-ssd':
         net = await cocossd.load();
         break;
-      case 'handpose':
-        net = await handpose.load();
+      case 'yolo':
+        net = await loadGraphModel(MODEL_URL);
         break;
       default:
         net = await cocossd.load(); // Default to coco-ssd
